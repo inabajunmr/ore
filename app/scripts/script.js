@@ -218,9 +218,7 @@ function parrotize() {
 
 	document.querySelectorAll("img").forEach(target => {
 		i = Math.floor(Math.random() * parrotsArray.length)
-		console.log(parrotsArray.length)
-		console.log(i)
-		console.log(parrotsArray[i])
 		target.setAttribute("src", parrotsArray[i])
+		target.removeAttribute("srcset")
 	});
 }
