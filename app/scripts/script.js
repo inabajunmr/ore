@@ -215,12 +215,9 @@ http://countryparrots.com/parrots/transnistria-parrot.gif`
 
 function parrotize() {
 	parrotsArray = parrots.split(/\n/)
-
 	imgs = document.querySelectorAll("img")
-
-	t = 1
-	imgs.forEach(function(element, i) {
-		setTimeout(function(){parrot(element)}, t);
+	imgs.forEach(function(element) {
+		parrot(element)
 	});
 }
 
