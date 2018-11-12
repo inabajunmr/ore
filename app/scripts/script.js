@@ -216,9 +216,17 @@ http://countryparrots.com/parrots/transnistria-parrot.gif`
 function parrotize() {
 	parrotsArray = parrots.split(/\n/)
 
-	document.querySelectorAll("img").forEach(target => {
-		i = Math.floor(Math.random() * parrotsArray.length)
-		target.setAttribute("src", parrotsArray[i])
-		target.removeAttribute("srcset")
+	imgs = document.querySelectorAll("img")
+
+	t = 1
+	imgs.forEach(function(element, i) {
+		setTimeout(function(){parrot(element)}, t);
 	});
 }
+
+function parrot(img) {
+	pi = Math.floor(Math.random() * parrotsArray.length)
+	img.setAttribute("src", parrotsArray[pi])
+	img.removeAttribute("srcset")
+}
+  
