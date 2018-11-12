@@ -1,9 +1,3 @@
-browser.runtime.onInstalled.addListener((details) => {
-  console.log('previousVersion', details.previousVersion)
-})
-
-browser.browserAction.setBadgeText({
-  text: `'Allo`
-})
-
-console.log(`'Allo 'Allo! Event Page for Browser Action`)
+chrome.browserAction.onClicked.addListener(function(tab) {
+	chrome.tabs.sendMessage(tab.id, "parrotize");
+});
