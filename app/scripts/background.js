@@ -5,21 +5,18 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 
 // https://github.com/dai0304/pegmatite/blob/1.2.0/pegmatite/background.js
 
-function fetchImageDataUri(uri, callback) {
-	fetchImage(uri, function() {
-		var contentType = this.getResponseHeader("Content-Type");
-		var unicode = toUnicodeString(this.response);
-		var base64 = encodeBase64(unicode);
-		var dataUri = "data:" + contentType + ";base64," + base64;
-		callback(dataUri);
-	});
-}
-
 function fetchImage(uri, callback) {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", uri, true);
 	xhr.responseType = "arraybuffer";
-	xhr.onload = callback;
+	xhr.onload = function() {
+		var contentType = xhr.getResponseHeader("Content-Type");
+		var unicode = toUnicodeString(xhr.response);
+		var base64 = encodeBase64(unicode);
+		var dataUri = "data:" + contentType + ";base64," + base64;
+		callback(dataUri);
+	};
+
 	xhr.send();
 }
 
@@ -38,7 +35,7 @@ function encodeBase64(string) {
 
 function onMessage(message, sender, callback) {
 	if(message.action == "parrotize") {
-		fetchImageDataUri(message.url, callback);
+		fetchImage(message.url, callback);
 	}
 	return true;
 }
