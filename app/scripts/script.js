@@ -217,13 +217,15 @@ function parrotize() {
 	parrotsArray = parrots.split(/\n/)
 	imgs = document.querySelectorAll("img")
 	imgs.forEach(function(element) {
-		parrot(element)
+		pi = Math.floor(Math.random() * parrotsArray.length)
+		chrome.runtime.sendMessage({ "action": "parrotize", "url": parrotsArray[pi] }, function(dataUri) {
+			parrot(element, dataUri);
+		});
 	});
 }
 
-function parrot(img) {
-	pi = Math.floor(Math.random() * parrotsArray.length)
-	img.setAttribute("src", parrotsArray[pi])
-	img.removeAttribute("srcset")
+function parrot(el,img) {
+	el.setAttribute("src", img)
+	el.removeAttribute("srcset")
 }
   
