@@ -1,3 +1,3 @@
-# parrotizer
+# ore
 
-Chrome extension for the party.
+Chrome extension for making all images into my face.
