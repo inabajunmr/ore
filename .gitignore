@@ -1,3 +1,5 @@
 node_modules/
 dist/
 packages/
+
+.DS_Store

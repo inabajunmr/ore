@@ -1,7 +1,7 @@
 {
-  "name": "parrotizer",
-  "short_name": "parrotizer",
-  "description": "Start to party with parrots",
+  "name": "ore",
+  "short_name": "ore",
+  "description": "All images goes to my face",
   "version": "0.0.0",
   "manifest_version": 2,
   "icons": {
@@ -22,11 +22,6 @@
       "19": "images/icon-19.png",
       "38": "images/icon-38.png"
     },
-    "default_title": "Start to party"
-  },
-  "options_page": "pages/options.html",
-  "options_ui": {
-    "page": "pages/options.html",
-    "chrome_style": true
+    "default_title": "All images goes to my face"
   }
 }
