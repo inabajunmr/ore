@@ -1,3 +1,3 @@
 # parrotizer
 
-add img tag with parrot and insert into dom
+Chrome extension for the party.
